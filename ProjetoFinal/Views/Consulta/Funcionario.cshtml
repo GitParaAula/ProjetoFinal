@@ -1,0 +1,40 @@
+﻿@model List<ProjetoFinal.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Consulta";
+}
+
+<link href="~/../../../../área de trabalho/projetofinal/projetofinal/wwwroot/css/funcionario.css" rel="stylesheet" />
+
+<div class="container mt-5">
+
+    <h2 class="mb-4 text-center">Funcionários Registrados</h2>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>RG</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var f in Model)
+            {
+                <tr>
+                    <td>@f.Nome</td>
+                    <td>@f.Cpf</td>
+                    <td>@f.Rg</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary w-100 mt-3 mb-5"
+       asp-controller="Consultar"
+       asp-action="Consultar">
+        Voltar
+    </a>
+
+</div>

@@ -52,5 +52,33 @@ namespace ProjetoFinal.Repositorio
                 conexao.Close();
             }
         }
+        public List<Funcionario> ListarTodos()
+        {
+            var lista = new List<Funcionario>();
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                string sql = "SELECT Nome, Cpf, Rg FROM tbFuncionario";
+
+                MySqlCommand cmd = new(sql, conexao);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new Funcionario
+                        {
+                            Nome = reader["Nome"].ToString(),
+                            Cpf = reader["Cpf"].ToString(),
+                            Rg = reader["Rg"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }
