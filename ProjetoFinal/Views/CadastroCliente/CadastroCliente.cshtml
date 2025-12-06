@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Cadastro do Cliente";
+}
+
+<link href="c:\users\vini1\onedrive\área de trabalho\projetofinal\projetofinal\wwwroot\css\cadastrocliente.css" rel="stylesheet" />
+
+@model ProjetoFinal.Models.Usuario
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center mb-4">Cadastro de Cliente</h2>
+
+    <form asp-action="Salvar" method="post">
+
+        <h4>Dados Pessoais</h4>
+
+        <label>Nome</label>
+        <input class="form-control mb-2" asp-for="Nome" required />
+
+        <label>CPF</label>
+        <input class="form-control mb-2" asp-for="Cpf" required />
+
+        <label>Idade</label>
+        <input class="form-control mb-2" asp-for="Idade" type="number" required />
+
+        <label>E-mail</label>
+        <input class="form-control mb-3" asp-for="Email" type="email" required />
+
+        <h4>Endereço</h4>
+
+        <label>Rua</label>
+        <input class="form-control mb-2" asp-for="Endereco.Rua" required />
+
+        <label>Número</label>
+        <input class="form-control mb-2" asp-for="Endereco.Numero" type="number" required />
+
+        <label>Complemento (opcional)</label>
+        <input class="form-control mb-3" asp-for="Endereco.Complemento" />
+
+        <button class="btn btn-primary w-100">Cadastrar</button>
+
+    </form>
+</div>

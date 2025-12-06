@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
 builder.Services.AddScoped<CadastroFuncRepositorio>();
+builder.Services.AddScoped<CadastroClienteRepositorio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
