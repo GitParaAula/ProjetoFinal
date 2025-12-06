@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Menu do Funcionário";
+}
+
+<link href="~/../../../../área de trabalho/projetofinal/projetofinal/wwwroot/css/menu.css" rel="stylesheet" />
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#">Sistema Funcionário</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Consultar" asp-action="Consultar">
+                        Consultar
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Cadastrar" asp-action="Cadastrar">
+                        Cadastrar
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Gerenciar" asp-action="Gerenciar">
+                        Gerenciar
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Atualizar" asp-action="Atualizar">
+                        Atualizar
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Excluir" asp-action="Excluir">
+                        Excluir
+                    </a>
+                </li>
+
+            </ul>
+
+            <form method="post">
+                <a class="btn btn-outline-light"
+                   asp-controller="SairAviso"
+                   asp-action="SairAviso">
+                    Sair
+                </a>
+            </form>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2 class="text-center">Bem-vindo ao Menu!</h2>
+</div>

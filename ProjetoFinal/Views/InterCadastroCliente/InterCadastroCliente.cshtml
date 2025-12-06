@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Aviso de Cadastro";
+}
+
+<link href="~/../../../../área de trabalho/projetofinal/projetofinal/wwwroot/css/intercadastrocliente.css" rel="stylesheet" />
+
+<div class="container mt-5" style="max-width: 550px;">
+
+    <div class="card shadow-sm p-4">
+        <h3 class="text-center mb-3">Cadastro de Cliente</h3>
+
+        <p class="text-center mb-4">
+            Para cadastrar um cliente, é necessário acessar o sistema como
+            <strong>Funcionário</strong>.
+        </p>
+
+        <p class="text-center text-muted mb-4">
+            Somente funcionários possuem permissão para realizar novos cadastros.
+        </p>
+
+        <div class="text-center">
+            <a class="btn btn-primary btn-lg px-4"
+               asp-controller="LoginFunc2"
+               asp-action="LoginFunc2">
+                Entrar como Funcionário
+            </a>
+        </div>
+
+        <div class="text-center">
+            <a class="btn btn-secondary btn-sm px-3"
+               asp-controller="LoginCliente"
+               asp-action="LoginCliente">
+                Cancelar e voltar
+            </a>
+        </div>
+
+    </div>
+
+</div>

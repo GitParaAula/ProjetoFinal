@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Login do Cliente";
+}
+
+<link href="c:\users\vini1\onedrive\área de trabalho\projetofinal\projetofinal\wwwroot\css\logincliente.css" rel="stylesheet" />
+
+<div class="container mt-5" style="max-width: 450px;">
+    <h2 class="text-center mb-4">Login do Cliente</h2>
+
+    <form method="post">
+
+        <div class="form-group mb-3">
+            <label for="Usuario">Nome ou Email</label>
+            <input type="text" class="form-control" id="Usuario" name="Usuario"
+                   placeholder="Digite seu nome ou email" required />
+        </div>
+
+        <div class="form-group mb-1">
+            <label for="Senha">Senha</label>
+            <input type="password" class="form-control" id="Senha" name="Senha"
+                   placeholder="Digite sua senha" required />
+        </div>
+
+        <div class="text-end mb-4">
+            <a asp-controller="InterCadastroCliente"
+               asp-action="InterCadastroCliente"
+               class="small text-decoration-none">
+                Não possui cadastro? Clique aqui.
+            </a>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+
+        <a class="btn btn-secondary w-100"
+           asp-controller="EscolhaLogin"
+           asp-action="EscolhaLogin">
+            Voltar
+        </a>
+
+    </form>
+</div>

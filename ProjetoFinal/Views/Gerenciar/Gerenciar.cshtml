@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Gerenciar";
+}
+
+<link href="~/../../../../área de trabalho/projetofinal/projetofinal/wwwroot/css/gerenciar.css" rel="stylesheet" />
+
+<div class="container mt-5" style="max-width: 700px;">
+
+    <fieldset class="border border-primary rounded p-4">
+        <legend class="w-auto px-3">O que deseja gerenciar?</legend>
+
+        <div class="d-flex flex-column gap-3">
+
+            <a class="btn btn-outline-primary"
+               asp-controller=""
+               asp-action="">
+                Atribuir Pet a Dono
+            </a>
+
+            <a class="btn btn-outline-primary"
+               asp-controller=""
+               asp-action="">
+                Atribuir Plano ao Pet
+            </a>
+
+
+            <div class="mt-4">
+                <a class="btn btn-secondary w-100"
+                   asp-controller="Menu"
+                   asp-action="Menu">
+                    Voltar
+                </a>
+
+            </div>
+        </div>
+
+    </fieldset>
+
+</div>

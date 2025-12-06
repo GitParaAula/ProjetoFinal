@@ -1,0 +1,69 @@
+﻿/* ===== CONTAINER ===== */
+.container {
+    margin-top: 80px !important;
+}
+
+/* ===== TÍTULO ===== */
+h2 {
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* ===== TEXTO DESCRITIVO ===== */
+.text-muted {
+    font-size: 1rem;
+    color: #666 !important;
+}
+
+/* ===== BOTÕES PRINCIPAIS ===== */
+.btn-primary,
+.btn-success {
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+    /* Hover */
+    .btn-primary:hover {
+        background-color: #005fcc;
+        border-color: #005fcc;
+        transform: scale(1.04);
+    }
+
+    .btn-success:hover {
+        transform: scale(1.04);
+    }
+
+/* ===== BOTÃO VOLTAR ===== */
+.btn-outline-secondary {
+    padding: 8px 22px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: 0.2s ease;
+}
+
+    /* Hover botão voltar */
+    .btn-outline-secondary:hover {
+        background-color: #e9e9e9;
+        transform: scale(1.03);
+    }
+
+/* ===== ANIMAÇÃO ===== */
+.text-center {
+    animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
