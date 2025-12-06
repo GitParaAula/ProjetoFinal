@@ -10,6 +10,13 @@
 
     <h2 class="mb-4 text-center">Funcionários Registrados</h2>
 
+    <form method="get" asp-action="Funcionario" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="nome" class="form-control" placeholder="Digite o nome para consultar" />
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
     <table class="table table-striped table-bordered">
         <thead class="table-primary">
             <tr>

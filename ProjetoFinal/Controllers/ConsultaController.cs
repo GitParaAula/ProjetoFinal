@@ -14,8 +14,14 @@ namespace ProjetoFinal.Controllers
         {
             return View();
         }
-        public IActionResult Funcionario()
+        public IActionResult Funcionario(string nome)
         {
+            if (!string.IsNullOrEmpty(nome))
+            {
+                var resultado = _repo.BuscarPorNome(nome);
+                return View(resultado);
+            }
+
             var funcionarios = _repo.ListarTodos();
             return View(funcionarios);
         }

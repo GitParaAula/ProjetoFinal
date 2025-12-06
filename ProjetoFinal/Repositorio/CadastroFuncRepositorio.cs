@@ -80,5 +80,34 @@ namespace ProjetoFinal.Repositorio
 
             return lista;
         }
+        public List<Funcionario> BuscarPorNome(string nome)
+        {
+            var lista = new List<Funcionario>();
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                string sql = "SELECT Nome, Cpf, Rg FROM tbFuncionario WHERE Nome LIKE @nome";
+
+                MySqlCommand cmd = new(sql, conexao);
+                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = "%" + nome + "%";
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new Funcionario
+                        {
+                            Nome = reader["Nome"].ToString(),
+                            Cpf = reader["Cpf"].ToString(),
+                            Rg = reader["Rg"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }
