@@ -88,5 +88,48 @@ namespace ProjetoFinal.Repositorio
 
             return lista;
         }
+        public List<Usuario> BuscarPorNome(string nome)
+        {
+            var lista = new List<Usuario>();
+
+            using (var con = new MySqlConnection(_conexaoMySQL))
+            {
+                con.Open();
+
+                string sql = @"
+            SELECT u.Nome, u.Cpf, u.Idade, u.Email,
+                   e.Rua, e.Numero, e.Complemento
+            FROM tbUsuario u
+            LEFT JOIN tbEndereco e ON u.Codigo_Endereco = e.Codigo_Endereco
+            WHERE u.Nome LIKE @Nome;
+        ";
+
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@Nome", "%" + nome + "%");
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new Usuario
+                        {
+                            Nome = reader["Nome"].ToString(),
+                            Cpf = reader["Cpf"].ToString(),
+                            Idade = Convert.ToInt32(reader["Idade"]),
+                            Email = reader["Email"].ToString(),
+
+                            Endereco = new Endereco
+                            {
+                                Rua = reader["Rua"]?.ToString(),
+                                Numero = reader["Numero"] != DBNull.Value ? Convert.ToInt32(reader["Numero"]) : 0,
+                                Complemento = reader["Complemento"]?.ToString()
+                            }
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }

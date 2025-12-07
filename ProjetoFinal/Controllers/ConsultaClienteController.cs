@@ -11,11 +11,17 @@ namespace ProjetoFinal.Controllers
         {
             _repo = repo;
         }
-
-        public IActionResult ConsultaCliente()
+        [HttpGet]
+        public IActionResult ConsultaCliente(string nome)
         {
-            var clientes = _repo.ListarClientes();
-            return View(clientes);
+            if (!string.IsNullOrEmpty(nome))
+            {
+                var filtrados = _repo.BuscarPorNome(nome);
+                return View(filtrados);
+            }
+
+            var todos = _repo.ListarClientes();
+            return View(todos);
         }
     }
 }
