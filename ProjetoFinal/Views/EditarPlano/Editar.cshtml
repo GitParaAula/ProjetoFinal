@@ -1,0 +1,44 @@
+﻿@model ProjetoFinal.Models.Plano
+
+@{
+    ViewData["Title"] = "Editar Plano";
+}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4 text-center">Editar Plano</h2>
+
+    <form asp-action="Editar" method="post" onsubmit="return confirmarEdicao();">
+        <input type="hidden" asp-for="Codigo_Plano" />
+
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label"></label>
+            <input asp-for="Nome" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Valor" class="form-label"></label>
+            <input asp-for="Valor" class="form-control" step="0.01" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Duracao" class="form-label"></label>
+            <input asp-for="Duracao" class="form-control" type="date" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Requisitos" class="form-label"></label>
+            <textarea asp-for="Requisitos" class="form-control"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Confirmar Edição</button>
+        <a class="btn btn-secondary w-100 mt-2" asp-action="ConsultaPlano">Voltar</a>
+    </form>
+
+</div>
+
+<script>
+    function confirmarEdicao() {
+        return confirm("Tem certeza que deseja confirmar a edição deste plano?");
+    }
+</script>
