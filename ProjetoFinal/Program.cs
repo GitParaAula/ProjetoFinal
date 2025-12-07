@@ -12,6 +12,7 @@ builder.Services.AddScoped<CadastroPetRepositorio>();
 builder.Services.AddScoped<CadastroPlanoRepositorio>();
 builder.Services.AddScoped<PlanoRepositorio>();
 builder.Services.AddScoped<FuncionarioRepositorio>();
+builder.Services.AddScoped<UsuarioRepositorio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
