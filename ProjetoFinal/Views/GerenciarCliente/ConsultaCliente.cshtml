@@ -22,6 +22,7 @@
                 <th>CPF</th>
                 <th>Idade</th>
                 <th>Email</th>
+                <th>Endereço</th> <!-- NOVA COLUNA -->
                 <th>Ações</th>
             </tr>
         </thead>
@@ -33,6 +34,11 @@
                     <td>@u.Cpf</td>
                     <td>@u.Idade</td>
                     <td>@u.Email</td>
+                    <td>
+                        Rua: @u.Endereco?.Rua <br />
+                        Nº: @u.Endereco?.Numero <br />
+                        Comp: @u.Endereco?.Complemento
+                    </td> <!-- EXIBE ENDEREÇO -->
                     <td>
                         <a class="btn btn-warning btn-sm"
                            asp-controller="GerenciarCliente"
