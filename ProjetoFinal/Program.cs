@@ -23,6 +23,7 @@ builder.Services.AddScoped<AtribuirPlanoRepositorio>();
 builder.Services.AddScoped<PetRepositorio>();
 builder.Services.AddScoped<EditarPetRepositorio>();
 builder.Services.AddScoped<ConsultarPetRepositorio>();
+builder.Services.AddScoped<PagamentoRepositorio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

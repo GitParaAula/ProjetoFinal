@@ -26,11 +26,16 @@ namespace ProjetoFinal.Controllers
             TempData["Mensagem"] = resultado;
 
             if (resultado.Contains("incorreto"))
-                TempData["MensagemClasse"] = "alert-danger"; // vermelho
+            {
+                TempData["MensagemClasse"] = "alert-danger";
+                return RedirectToAction("AtribuirPlano");
+            }
             else
-                TempData["MensagemClasse"] = "alert-primary"; // azul
+            {
+                TempData["MensagemClasse"] = "alert-primary";
+                return RedirectToAction("ConfirmacaoAtribuir", "ConfirmacaoAtribuir");
+            }
 
-            return RedirectToAction("AtribuirPlano");
         }
     }
 }
