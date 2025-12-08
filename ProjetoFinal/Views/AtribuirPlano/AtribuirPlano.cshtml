@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Atribuir Plano ao Pet";
+}
+
+<div class="container mt-4" style="max-width: 500px;">
+    <h2 class="text-center mb-4">Atribuir Plano ao Pet</h2>
+
+    @if (TempData["Mensagem"] != null)
+    {
+        <div class="alert @TempData["MensagemClasse"] text-center">
+            @TempData["Mensagem"]
+        </div>
+    }
+
+    <form method="post">
+
+        <div class="form-group mb-3">
+            <label>Código do Pet</label>
+            <input type="number" class="form-control" name="codigoPet" required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Código do Plano</label>
+            <input type="number" class="form-control" name="codigoPlano" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mb-2">Atribuir</button>
+
+        <a asp-controller="Gerenciar" asp-action="Gerenciar" class="btn btn-secondary w-100">
+            Voltar
+        </a>
+
+    </form>
+</div>
