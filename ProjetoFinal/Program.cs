@@ -17,6 +17,7 @@ builder.Services.AddScoped<PlanoEditarRepositorio>();
 builder.Services.AddScoped<ExcluirFuncionarioRepositorio>();
 builder.Services.AddScoped<ExcluirClienteRepositorio>();
 builder.Services.AddScoped<ExcluirPlanoRepositorio>();
+builder.Services.AddScoped<LoginClienteRepositorio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

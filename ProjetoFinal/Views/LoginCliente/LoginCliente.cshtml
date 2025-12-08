@@ -7,6 +7,13 @@
 <div class="container mt-5" style="max-width: 450px;">
     <h2 class="text-center mb-4">Consultar Info do Cliente</h2>
 
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger text-center">
+            @TempData["Erro"]
+        </div>
+    }
+
     <form method="post">
 
         <div class="form-group mb-3">
@@ -29,7 +36,11 @@
             </a>
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">Consultar</button>
+        <button type="submit" class="btn btn-primary w-100"
+           asp-controller="ClienteLoginConsulta"
+           asp-action="LoginCliente">
+            Consultar
+        </button>
 
         <a class="btn btn-secondary w-100"
            asp-controller="Home"
