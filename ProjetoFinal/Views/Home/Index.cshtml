@@ -11,15 +11,20 @@
         <h1 class="display-4 mb-4">Bem-vindo a VitaPet!</h1>
 
         <p class="lead mb-4">
-            Faça login para continuar.
+            Selecione uma opção abaixo para continuar.
         </p>
 
         <a class="btn btn-primary btn-lg px-4" 
-           asp-controller="EscolhaLogin"
-           asp-action="EscolhaLogin">
+           asp-controller="LoginFunc"
+           asp-action="LoginFunc">
             Fazer Login
         </a>
 
+        <a class="btn btn-success btn-lg px-4"
+           asp-controller="LoginCliente"
+           asp-action="LoginCliente">
+            Consultar Info do Cliente
+        </a>
     </div>
 
 </div>
