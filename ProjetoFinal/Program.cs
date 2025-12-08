@@ -20,6 +20,7 @@ builder.Services.AddScoped<ExcluirPlanoRepositorio>();
 builder.Services.AddScoped<LoginClienteRepositorio>();
 builder.Services.AddScoped<AtribuirPetRepositorio>();
 builder.Services.AddScoped<AtribuirPlanoRepositorio>();
+builder.Services.AddScoped<PetRepositorio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

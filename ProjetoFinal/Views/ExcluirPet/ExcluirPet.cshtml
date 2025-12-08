@@ -1,0 +1,62 @@
+﻿@model List<ProjetoFinal.Models.Pet>
+
+@{
+    ViewData["Title"] = "Excluir Pet";
+}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4 text-center">Excluir Pet</h2>
+
+    <!-- CAMPO DE BUSCA -->
+    <form method="get" asp-controller="ExcluirPet" asp-action="ExcluirPet" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="nome" class="form-control" placeholder="Pesquisar por nome do pet..." />
+            <button class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    <!-- TABELA -->
+    <table class="table table-bordered table-striped">
+        <thead class="table-danger">
+            <tr class="text-center">
+                <th>Nome</th>
+                <th>Raça</th>
+                <th>Tipo</th>
+                <th>Porte</th>
+                <th>Idade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Model)
+            {
+                <tr>
+                    <td>@pet.Nome</td>
+                    <td>@pet.Raca</td>
+                    <td>@pet.Tipo</td>
+                    <td>@pet.Porte</td>
+                    <td>@pet.Idade</td>
+
+                    <td>
+                        <form asp-controller="ExcluirPet" asp-action="ConfirmarExcluir" method="post"
+                              onsubmit="return confirm('Tem certeza que deseja EXCLUIR este pet? Esta ação não poderá ser desfeita.');">
+
+                            <input type="hidden" name="id" value="@pet.Codigo_Pet" />
+
+                            <button class="btn btn-danger btn-sm">Excluir</button>
+
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary w-100 mt-3 mb-5"
+       asp-controller="Excluir"
+       asp-action="Excluir">
+        Voltar
+    </a>
+
+</div>
