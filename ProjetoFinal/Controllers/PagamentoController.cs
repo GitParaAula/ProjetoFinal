@@ -33,5 +33,17 @@ namespace ProjetoFinal.Controllers
 
             return View(pagamento);
         }
+        [HttpGet]
+        public IActionResult ConsultaHistorico()
+        {
+            return View("~/Views/Pagamento/ConsultaHistorico.cshtml");
+        }
+
+        [HttpGet]
+        public IActionResult HistoricoCliente(int codigoCliente)
+        {
+            var pagamentos = _repositorio.HistoricoUltimos10(codigoCliente);
+            return View("~/Views/Pagamento/HistoricoCliente.cshtml", pagamentos);
+        }
     }
 }
