@@ -1,0 +1,52 @@
+﻿@model List<ProjetoFinal.Repositorio.PetConsultaViewModel>
+
+@{
+    ViewData["Title"] = "Consulta de Pets";
+}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4 text-center">Consulta de Pets</h2>
+
+    <!-- CAMPO DE BUSCA -->
+    <form method="get" asp-controller="ConsultarPet" asp-action="Consultar" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="nome" class="form-control" placeholder="Digite o nome do pet" />
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    <!-- TABELA -->
+    <table class="table table-striped table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Nome</th>
+                <th>Raça</th>
+                <th>Tipo</th>
+                <th>Idade</th>
+                <th>Plano</th>
+                <th>Dono</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.NomePet</td>
+                    <td>@p.Raca</td>
+                    <td>@p.Tipo</td>
+                    <td>@p.Idade</td>
+                    <td>@p.NomePlano</td>
+                    <td>@p.NomeDono</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary w-100 mt-3 mb-5"
+       asp-controller="Consultar"
+       asp-action="Consultar">
+        Voltar
+    </a>
+</div>
