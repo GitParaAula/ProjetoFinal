@@ -105,5 +105,47 @@ namespace ProjetoFinal.Repositorio
                 cmd.ExecuteNonQuery();
             }
         }
+        public List<PetComPlanoViewModel> ListarPetsComPlanoPorUsuario(int codigoUsuario)
+        {
+            List<PetComPlanoViewModel> lista = new List<PetComPlanoViewModel>();
+
+            using (MySqlConnection con = new MySqlConnection(_conexao))
+            {
+                con.Open();
+
+                string sql = @"
+            SELECT 
+                p.Codigo_Pet, p.Nome AS NomePet, p.Tipo, p.Raca, p.Idade, p.Porte,
+                pl.Codigo_Plano, pl.Nome AS NomePlano, pl.Valor, pl.Duracao
+            FROM tbPet p
+            INNER JOIN tbPlano pl ON p.Codigo_Plano = pl.Codigo_Plano
+            WHERE p.Codigo_Usuario = @codigoUsuario";
+
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@codigoUsuario", codigoUsuario);
+
+                using (MySqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new PetComPlanoViewModel
+                        {
+                            Codigo_Pet = dr.GetInt32("Codigo_Pet"),
+                            NomePet = dr.GetString("NomePet"),
+                            Tipo = dr.GetString("Tipo"),
+                            Raca = dr.GetString("Raca"),
+                            Idade = dr.GetInt32("Idade"),
+                            Porte = dr.GetString("Porte"),
+                            Codigo_Plano = dr.GetInt32("Codigo_Plano"),
+                            NomePlano = dr.GetString("NomePlano"),
+                            Valor = dr.GetDecimal("Valor"),
+                            Duracao = dr.GetDateTime("Duracao")
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }

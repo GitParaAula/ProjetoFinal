@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProjetoFinal.Models;
 using ProjetoFinal.Repositorio;
 
 namespace ProjetoFinal.Controllers
@@ -6,10 +7,12 @@ namespace ProjetoFinal.Controllers
     public class ClienteLoginConsultaController : Controller
     {
         private readonly LoginClienteRepositorio _repo;
+        private readonly EditarPetRepositorio _petRepositorio;
 
-        public ClienteLoginConsultaController(LoginClienteRepositorio repo)
+        public ClienteLoginConsultaController(LoginClienteRepositorio repo, EditarPetRepositorio petRepositorio)
         {
             _repo = repo;
+            _petRepositorio = petRepositorio;
         }
 
         [HttpGet]
@@ -34,7 +37,6 @@ namespace ProjetoFinal.Controllers
 
         public IActionResult MostrarCliente(int id)
         {
-            // precisamos buscar o cliente de novo:
             var cliente = _repo.BuscarClientePorId(id);
 
             if (cliente == null)
@@ -43,7 +45,17 @@ namespace ProjetoFinal.Controllers
                 return RedirectToAction("LoginCliente");
             }
 
-            return View("~/Views/LoginCliente/MostrarCliente.cshtml", cliente);
+            // Buscar pets com planos do cliente
+            var petsComPlano = _petRepositorio.ListarPetsComPlanoPorUsuario(id);
+
+            // Montar ViewModel
+            var viewModel = new ClienteComPetsViewModel
+            {
+                Cliente = cliente,
+                Pets = petsComPlano
+            };
+
+            return View("~/Views/LoginCliente/MostrarCliente.cshtml", viewModel);
         }
     }
 }
