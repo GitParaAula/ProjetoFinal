@@ -1,0 +1,44 @@
+﻿@model ProjetoFinal.Models.Pet
+
+@{
+    ViewData["Title"] = "Editar Pet";
+}
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Editar Pet</h2>
+
+    <form asp-action="ConfirmarEdicao" method="post" onsubmit="return confirmar()">
+
+        <input type="hidden" asp-for="Codigo_Pet" />
+
+        <label>Nome</label>
+        <input class="form-control mb-2" asp-for="Nome" required />
+
+        <label>Tipo</label>
+        <input class="form-control mb-2" asp-for="Tipo" required />
+
+        <label>Raça</label>
+        <input class="form-control mb-2" asp-for="Raca" required />
+
+        <label>Porte</label>
+        <input class="form-control mb-2" asp-for="Porte" maxlength="1" required />
+
+        <label>Idade</label>
+        <input class="form-control mb-3" type="number" asp-for="Idade" required />
+
+        <button class="btn btn-success w-100">Confirmar Edição</button>
+    </form>
+
+    <a class="btn btn-secondary w-100 mt-3"
+       asp-controller="EditarPet"
+       asp-action="Consultar">
+        Voltar
+    </a>
+</div>
+
+<script>
+    function confirmar() {
+        return confirm("Deseja realmente salvar as alterações?");
+    }
+</script>

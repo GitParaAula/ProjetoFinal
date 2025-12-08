@@ -1,0 +1,59 @@
+﻿@model List<ProjetoFinal.Models.Pet>
+
+@{
+    ViewData["Title"] = "Consultar Pets";
+}
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Consultar Pets</h2>
+
+    <form method="get" asp-controller="EditarPet" asp-action="Consultar" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="nome" class="form-control" placeholder="Buscar por nome..." />
+            <button class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Raça</th>
+                <th>Porte</th>
+                <th>Idade</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Codigo_Pet</td>
+                    <td>@p.Nome</td>
+                    <td>@p.Tipo</td>
+                    <td>@p.Raca</td>
+                    <td>@p.Porte</td>
+                    <td>@p.Idade</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm"
+                           asp-controller="EditarPet"
+                           asp-action="Editar"
+                           asp-route-id="@p.Codigo_Pet">
+                            Editar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-secondary w-100"
+       asp-controller="Atualizar"
+       asp-action="Atualizar">
+        Voltar
+    </a>
+
+</div>
